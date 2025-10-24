@@ -18,10 +18,10 @@ public class APIGatewayServiceApplication {
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
                 .route("eureka_route", r -> r
-                        .path("/api/bookings/**")
+                        .path("/api/bookings/**", "/api/user/**")
                         .uri("lb://BOOKING-SERVICE"))
                 .route("eureka_route", r -> r
-                        .path("/api/hotels/**")
+                        .path("/api/hotels/**", "/api/rooms/**")
                         .uri("lb://HOTEL-SERVICE"))
                 .build();
     }
